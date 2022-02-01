@@ -38,7 +38,7 @@ class LidController {
             return "registratieform";
         }
         try {
-            lidService.registreer(lid, request.getRequestURI().toString());
+            lidService.registreer(lid, request.getRequestURL().toString());
             redirect.addAttribute("id", lid.getId());
             return "redirect:/leden/geregistreerd/{id}";
         } catch (KanMailNietZendenException ex) {

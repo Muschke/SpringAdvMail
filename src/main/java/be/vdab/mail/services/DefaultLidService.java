@@ -4,8 +4,9 @@ import be.vdab.mail.domain.Lid;
 import be.vdab.mail.mailing.LidMailing;
 import be.vdab.mail.repositories.LidRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+
 import java.util.Optional;
 
 @Service
@@ -26,7 +27,7 @@ class DefaultLidService implements LidService{
     }
 
     @Override
-    @Transactional //(readOnly = true)
+    @Transactional(readOnly = true) //let erop dat je juiste transational importeert
     public Optional<Lid> findById(long id) {
         return lidRepository.findById(id);
     }
